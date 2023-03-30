@@ -32,4 +32,7 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
+    Route::get('/send-sms', function () {
+        return Inertia::render('SendSMS');
+    })->name('send-sms');
 });

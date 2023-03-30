@@ -170,7 +170,7 @@ defineProps({
                 <ul role="list" class="-mx-2 space-y-1">
                   <li>
                     <!-- Current: "bg-indigo-700 text-white", Default: "text-indigo-200 hover:text-white hover:bg-indigo-700" -->
-                    <Link href="#"
+                    <Link href="/dashboard"
                       class="bg-indigo-700 text-white group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
                     <svg class="h-6 w-6 shrink-0 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                       stroke="currentColor" aria-hidden="true">
@@ -182,7 +182,7 @@ defineProps({
                   </li>
 
                   <li>
-                    <Link href="#"
+                    <Link href="/send-sms"
                       class="text-indigo-200 hover:text-white hover:bg-indigo-700 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
                     <svg class="h-6 w-6 shrink-0 text-indigo-200 group-hover:text-white" fill="none" viewBox="0 0 24 24"
                       stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -194,7 +194,7 @@ defineProps({
                   </li>
 
                   <li>
-                    <Link href="#"
+                    <Link href="/contacts-groups"
                       class="text-indigo-200 hover:text-white hover:bg-indigo-700 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
                     <svg class="h-6 w-6 shrink-0 text-indigo-200 group-hover:text-white" fill="none" viewBox="0 0 24 24"
                       stroke-width="1.5" stroke="currentColor" aria-hidden="true">
