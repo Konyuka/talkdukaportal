@@ -49,6 +49,10 @@
     <link href="./output.css" rel="stylesheet">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
+    <link href="/fa/fontawesome-free-6.3.0-web/css/fontawesome.css" rel="stylesheet">
+    <link href="/fa/fontawesome-free-6.3.0-web/css/brands.css" rel="stylesheet">
+    <link href="/fa/fontawesome-free-6.3.0-web/css/solid.css" rel="stylesheet">
+
     <!-- Scripts -->
     @routes
     @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
