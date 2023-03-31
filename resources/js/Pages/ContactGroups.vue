@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    
+    <p>cehck</p>
 </template>
 
 <style scoped>
