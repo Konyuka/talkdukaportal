@@ -1,7 +1,22 @@
 <script setup>
 import { ref } from 'vue'
 import QuestionModal from '@/Partials/Components/QuestionModal.vue'
+import { router } from '@inertiajs/vue3'
 
+
+
+const title = ref(null)
+const description = ref(null)
+const questionModal = ref(false)
+
+const openQuestionModal = (payload) => {
+    if(payload=='senderID'){
+        title.value = 'Sender ID'
+        description.value = ""
+        router.reload({ only: ['users'] })
+        questionModal.value = true
+    }
+}
 
 </script>
 
@@ -23,7 +38,7 @@ import QuestionModal from '@/Partials/Components/QuestionModal.vue'
                 <div class="mt-16 flex flex-col w-full ">
                     <div class="flex flex-row justify-between w-1/2">
                         <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Select Sender ID</label>
-                        <i class="text-indigo-600 fa-xl fas fa-question"></i>
+                        <i @click="openQuestionModal('senderID')" class="text-indigo-600 fas fa-question transform transition hover:scale-150 duration-700 cursor-pointer"></i>
                     </div>
                     <div class="mt-2">
                         <select id="country" name="country" autocomplete="country-name"
@@ -39,11 +54,13 @@ import QuestionModal from '@/Partials/Components/QuestionModal.vue'
         <div class="mt-10 grid grid-cols-2 gap-4">
             <div>
                 <div class="mt-8 flex flex-col w-full">
-                    <label for="about" class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">Input Text
+                    <label for="about" class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">Text
                         Message</label>
                     <div class="sm:col-span-3 py-5">
-                        <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Select Message
-                            Template</label>
+                        <div class="flex flex-row justify-between w-1/2">
+                            <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Select Message Template</label>
+                            <i @click="openQuestionModal('senderID')" class="text-indigo-600 fas fa-question transform transition hover:scale-150 duration-700 cursor-pointer"></i>
+                        </div>
                         <div class="mt-2">
                             <select id="country" name="country" autocomplete="country-name"
                                 class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
@@ -63,11 +80,12 @@ import QuestionModal from '@/Partials/Components/QuestionModal.vue'
             <div>
 
                 <div class="mt-8 flex flex-col w-full">
-                    <label for="about" class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">Input Mobile
-                        Number</label>
+                    <label for="about" class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">Mobile Number</label>
                     <div class="sm:col-span-3 py-5">
-                        <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Select User
-                            Group</label>
+                        <div class="flex flex-row justify-between w-1/2">
+                            <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Select User Group</label>
+                            <i @click="openQuestionModal('senderID')" class="text-indigo-600 fas fa-question transform transition hover:scale-150 duration-700 cursor-pointer"></i>
+                        </div>
                         <div class="mt-2">
                             <select id="country" name="country" autocomplete="country-name"
                                 class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
@@ -99,7 +117,7 @@ import QuestionModal from '@/Partials/Components/QuestionModal.vue'
         </div>
 
         <div class="container">
-            <QuestionModal />
+            <QuestionModal v-if="questionModal" :title="title" :description="description" />
         </div>
 
 

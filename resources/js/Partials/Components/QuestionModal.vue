@@ -1,4 +1,11 @@
-<script setup></script>
+<script setup>
+
+defineProps({
+    title: String,
+    description: String
+})
+
+</script>
 
 <template>
     <div>
@@ -17,16 +24,11 @@
                             </div>
                             <div class="mt-3 text-center sm:mt-5">
                                 <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">
-                                    Sender ID
+                                    {{  title  }}
                                 </h3>
                                 <div class="mt-2">
                                     <p class="text-left text-sm text-gray-500">
-                                        Sender ID is the alpha-numeric name or number which appears on the mobile phone as
-                                        the sender of a SMS (It is used to identify who's sending the message to the
-                                        recipient). Sender ID can be a numeric number or an alphanumeric such as the name of
-                                        your company or brand.
-
-                                        You can use different sender IDs from the drop down if you have multiple sender ID.
+                                        {[ description ]}
                                     </p>
                                 </div>
                             </div>
