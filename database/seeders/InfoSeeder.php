@@ -21,13 +21,13 @@ class InfoSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            [
-                'label' => 'Info 2',
-                'title' => 'Title for Info 2',
-                'description' => 'Description for Info 2',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
+            // [
+            //     'label' => 'Info 2',
+            //     'title' => 'Title for Info 2',
+            //     'description' => 'Description for Info 2',
+            //     'created_at' => now(),
+            //     'updated_at' => now(),
+            // ],
         ]);
     }
 }

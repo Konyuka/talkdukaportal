@@ -2,20 +2,40 @@
 import { ref } from 'vue'
 import QuestionModal from '@/Partials/Components/QuestionModal.vue'
 import { router } from '@inertiajs/vue3'
+// import { Inertia } from '@inertiajs/inertia'
 
+const props = defineProps({
+    title: String,
+    description: String
+})
 
-
-const title = ref(null)
-const description = ref(null)
+// const title = ref(null)
+// const description = ref(null)
 const questionModal = ref(false)
 
-const openQuestionModal = (payload) => {
-    if(payload=='senderID'){
-        title.value = 'Sender ID'
-        description.value = ""
-        router.reload({ only: ['users'] })
-        questionModal.value = true
-    }
+const openQuestionModal = async (payload) => {
+    const url = `/manual/${payload}`
+
+    await router.reload(url, {
+        only: ['title', 'description'],
+    }).then((response)=>{
+        console.log(response)
+    })
+
+
+
+    
+
+    questionModal.value = true
+
+    // if(payload=='senderID'){
+    //     // title.value = 'Sender ID'
+    //     // description.value = ""
+    //     // Inertia.visit(`/posts/${slug}`)
+
+
+    //     // router.reload({ only: ['users'] })
+    // }
 }
 
 </script>
@@ -26,8 +46,7 @@ const openQuestionModal = (payload) => {
         <div class="grid grid-cols-2 gap-4">
             <div>
                 <div class="mt-16 flex flex-col w-full">
-                    <label for="username" class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">SMS Campaign
-                        Label</label>
+                    <label for="username" class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">SMS Campaign Label</label>
                     <input tabindex="0" type="text" id="username" name="username" required
                         class="border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 bg-transparent placeholder-gray-500 text-gray-600 dark:text-gray-400"
                         placeholder="Loan Defaulters, New Leads" />
@@ -42,7 +61,7 @@ const openQuestionModal = (payload) => {
                     </div>
                     <div class="mt-2">
                         <select id="country" name="country" autocomplete="country-name"
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                            class="block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
                             <option>United States</option>
                             <option>Canada</option>
                         </select>

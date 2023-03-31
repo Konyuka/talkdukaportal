@@ -11,9 +11,12 @@ use App\Models\Info;
 
 class SendController extends Controller
 {
-    public function info(Info $info)
+    public function info($info)
     {
-        return Inertia::render('Post/Show', [
+        $info = Info::where('label', $info)->select('title', 'description')->firstOrFail();
+        // return dd($info);
+        // return dd($info);
+        return Inertia::render('SendSMS', [
             'title' => $info->title,
             'description' => $info->description
         ]);   
