@@ -17,7 +17,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Talk Duka Portal</title>
-    
+
 
     <!-- Meta SEO -->
     <meta name="title" content="Landwind - Tailwind CSS Landing Page">
@@ -54,7 +54,6 @@
     <link href="/fa/fontawesome-free-6.3.0-web/css/brands.css" rel="stylesheet">
     <link href="/fa/fontawesome-free-6.3.0-web/css/solid.css" rel="stylesheet">
 
-    <!-- Scripts -->
     @routes
     @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
     @inertiaHead
